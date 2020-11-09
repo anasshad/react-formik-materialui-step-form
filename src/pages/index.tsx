@@ -47,6 +47,8 @@ export function FormikStepper({
                   <StepLabel>{child.props.label}</StepLabel>
                 </Step>
               );
+            } else {
+              return null;
             }
           })}
         </Stepper>
