@@ -42,9 +42,11 @@ export function FormikStepper({
         <Stepper alternativeLabel activeStep={current}>
           {childrenArray.map((child) => {
             if (React.isValidElement<FormikValues>(child)) {
-              <Step key={child.props.label}>
-                <StepLabel>{child.props.label}</StepLabel>
-              </Step>;
+              return (
+                <Step key={child.props.label}>
+                  <StepLabel>{child.props.label}</StepLabel>
+                </Step>
+              );
             }
           })}
         </Stepper>
