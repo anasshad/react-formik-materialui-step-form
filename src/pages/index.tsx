@@ -40,11 +40,13 @@ export function FormikStepper({
     >
       <Form autoComplete="off">
         <Stepper alternativeLabel activeStep={current}>
-          {childrenArray.map((child) => (
-            <Step key={child.props.label}>
-              <StepLabel>{child.props.label}</StepLabel>
-            </Step>
-          ))}
+          {childrenArray.map((child) => {
+            if (React.isValidElement<FormikValues>(child)) {
+              <Step key={child.props.label}>
+                <StepLabel>{child.props.label}</StepLabel>
+              </Step>;
+            }
+          })}
         </Stepper>
         {currentChild}
         <div className="navigate-button-row">
